@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+<h1>Available Items</h1>
+<ul>
+{% for item in rental_items %}
+    <li>
+        <strong> <span style="font-size: 1.5em;">{{ item.item_name }}</span><br> </strong>
+        <span style="font-size: 0.9em;">
+            <strong>Price:</strong> ${{ item.price }}<br>
+            <strong>Available:</strong> {% if item.available %}Yes{% else %}No{% endif %}<br>
+            <strong>Renter:</strong> {{ item.renter_first_name }} {{ item.renter_last_name}}<br>
+        </span>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
