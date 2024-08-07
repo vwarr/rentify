@@ -1,6 +1,14 @@
 {% extends "base.html" %} {% block title %} Home Page {% endblock %}
 {% block content %}
 <p>This is the home page</p>
+<li>
+    <form class="logout-link" action="/accounts/logout" method="post">
+        {% csrf_token %}
+        <button type="submit">
+            Logout
+        </button>
+    </form>
+</li>
 {% endblock %}
 
 
