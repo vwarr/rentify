@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
+app_name = 'rentify'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('accounts/', include('accounts.urls'), name='accounts'),
-    path('items/', include('items.urls'), name='items')
+    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('items/', include('items.urls', namespace='items')),
 ]
