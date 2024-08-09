@@ -23,10 +23,13 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
             return redirect(reverse('home'))
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
+
 
 def logout_view(request):
     if request.method == 'POST':
