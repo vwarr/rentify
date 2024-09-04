@@ -19,7 +19,7 @@ def create_listing(request):
         form = forms.CreateItem(request.POST)
         if form.is_valid():
             # save item
-            return redirect(reverse('accounts:login'))
+            return redirect(reverse('items:items'))
     else:
         form = forms.CreateItem()
     return render(request, 'create-listing.html', {'form': form})
