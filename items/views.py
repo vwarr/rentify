@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
@@ -10,7 +9,7 @@ from .models import RentalItem
 
 def items(request):
     rental_items = RentalItem.objects.filter(available=True)
-    return render(request, "items.html", {'rental_items': rental_items})
+    return render(request, "items/items.html", {'rental_items': rental_items})
 
 
 @login_required(login_url=reverse_lazy('accounts:login'))
