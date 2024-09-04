@@ -18,7 +18,7 @@ def create_listing(request):
     if request.method == 'POST':
         form = forms.CreateItem(request.POST)
         if form.is_valid():
-            # save item
+            form.save()
             return redirect(reverse('items:items'))
     else:
         form = forms.CreateItem()
