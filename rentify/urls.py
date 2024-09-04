@@ -23,6 +23,6 @@ app_name = 'rentify'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('accounts/', include('accounts.urls', namespace='accounts')),
-    path('items/', include('items.urls', namespace='items')),
+    path('accounts/', include('accounts.urls', namespace='accounts'), name='accounts'),
+    path('items/', include('items.urls', namespace='items'), name='items'),
 ]
