@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
@@ -19,7 +18,7 @@ def create_listing(request):
         form = forms.CreateItem(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(reverse('items:items'))
+            return redirect(reverse('items:items-list'))
     else:
         form = forms.CreateItem()
     return render(request, 'create-listing.html', {'form': form})

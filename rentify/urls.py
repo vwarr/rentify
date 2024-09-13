@@ -25,4 +25,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('accounts/', include('accounts.urls', namespace='accounts'), name='accounts'),
     path('items/', include('items.urls', namespace='items'), name='items'),
+    path('about/', include('about.urls', namespace='about'), name='about'),
+    path('contact/', include('contact.urls', namespace='contact'), name='contact'),
+    path('profile/', include('user_profile.urls', namespace='user_profile'), name='user_profile'),
 ]
