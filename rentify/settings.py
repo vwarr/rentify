@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rentify',
     'items',
-    'accounts'
+    'accounts',
+    'about',
+    'user_profile',
+    'contact'
 ]
 
 MIDDLEWARE = [
