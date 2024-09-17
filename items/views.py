@@ -17,7 +17,13 @@ def create_listing(request):
     if request.method == 'POST':
         form = forms.CreateItem(request.POST)
         if form.is_valid():
-            form.save()
+            item = RentalItem.objects.create(
+                item_name = form.cleaned_data['item_name'],
+                price = form.cleaned_data['price'],
+                renter_first_name = request.user.first_name,
+                renter_last_name = request.user.last_name
+            )
+            item.save()
             return redirect(reverse('items:items-list'))
     else:
         form = forms.CreateItem()
