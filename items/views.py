@@ -15,11 +15,12 @@ def items(request):
 @login_required(login_url=reverse_lazy('accounts:login'))
 def create_listing(request):
     if request.method == 'POST':
-        form = forms.CreateItem(request.POST)
+        form = forms.CreateItem(request.POST, request.FILES)
         if form.is_valid():
             item = RentalItem.objects.create(
                 item_name = form.cleaned_data['item_name'],
                 price = form.cleaned_data['price'],
+                image = form.files['image'],
                 renter_first_name = request.user.first_name,
                 renter_last_name = request.user.last_name
             )

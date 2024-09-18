@@ -8,6 +8,11 @@
             <strong>Price:</strong> ${{ item.price }}<br>
             <strong>Available:</strong> {% if item.available %}Yes{% else %}No{% endif %}<br>
             <strong>Renter:</strong> {{ item.renter_first_name }} {{ item.renter_last_name}}<br>
+            {% if item.image %}
+                <img src="{{ item.image.url }}" alt="{{ item.item_name }}">
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
         </span>
     </li>
 {% endfor %}
