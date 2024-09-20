@@ -1,20 +1,29 @@
-{% extends "base.html" %} {% block content %}
-<h1>Available Items</h1>
-<ul>
-{% for item in rental_items %}
-    <li>
-        <strong> <span style="font-size: 1.5em;">{{ item.item_name }}</span><br> </strong>
-        <span style="font-size: 0.9em;">
-            <strong>Price:</strong> ${{ item.price }}<br>
-            <strong>Available:</strong> {% if item.available %}Yes{% else %}No{% endif %}<br>
-            <strong>Renter:</strong> {{ item.renter_first_name }} {{ item.renter_last_name}}<br>
-            {% if item.image %}
-                <img src="{{ item.image.url }}" alt="{{ item.item_name }}">
-            {% else %}
-                <p>No image available</p>
-            {% endif %}
-        </span>
-    </li>
-{% endfor %}
-</ul>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Available Items</h1>
+    <div class="row">
+        {% for item in rental_items %}
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                {% if item.image %}
+                <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.item_name }}" style="height: 200px; object-fit: cover;">
+                {% else %}
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="No image available" style="height: 200px; object-fit: cover;">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.item_name }}</h5>
+                    <p class="card-text"><strong>Price:</strong> ${{ item.price }}</p>
+                    <p class="card-text"><strong>Available:</strong> {% if item.available %}Yes{% else %}No{% endif %}</p>
+                    <p class="card-text"><small class="text-muted">Renter: {{ item.renter_first_name }} {{ item.renter_last_name }}</small></p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary btn-block">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
