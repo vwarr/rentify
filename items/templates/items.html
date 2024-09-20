@@ -2,7 +2,11 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h1 class="mb-4">Available Items</h1>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Available Items</h1>
+        <!-- Update the button to link to 'items/create-listing' with the 'create_listing' view -->
+        <a href="{% url 'items:create-listing' %}" class="btn btn-success">Create New Listing</a>
+    </div>
     <div class="row">
         {% for item in rental_items %}
         <div class="col-md-3 mb-4">
