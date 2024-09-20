@@ -2,7 +2,7 @@ import os
 
 from django.conf import settings
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
 from . import forms
@@ -15,6 +15,9 @@ def items(request):
     rental_items = RentalItem.objects.filter(available=True)
     return render(request, "items.html", {'rental_items': rental_items})
 
+def item_detail(request, item_id):
+    item = get_object_or_404(RentalItem, id=item_id)
+    return render(request, 'item-detail.html', {'item': item})
 
 @login_required(login_url=reverse_lazy('accounts:login'))
 def create_listing(request):

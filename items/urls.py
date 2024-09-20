@@ -8,4 +8,5 @@ app_name = 'items'
 urlpatterns = [
     path('', views.items, name='items-list'),
     path('create-listing', views.create_listing, name='create-listing'),
+    path('<int:item_id>', views.item_detail, name='item-detail'),
 ]

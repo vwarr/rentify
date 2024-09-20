@@ -1,0 +1,21 @@
+<!-- templates/items/item_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        {% if item.image %}
+        <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.item_name }}">
+        {% else %}
+        <img src="https://via.placeholder.com/150" class="card-img-top" alt="No image available">
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{ item.item_name }}</h5>
+            <p class="card-text"><strong>Price:</strong> ${{ item.price }}</p>
+            <p class="card-text"><strong>Description:</strong> {{ item.description }}</p>
+            <p class="card-text"><strong>Available:</strong> {% if item.available %}Yes{% else %}No{% endif %}</p>
+            <p class="card-text"><small class="text-muted">Renter: {{ item.renter_first_name }} {{ item.renter_last_name }}</small></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
