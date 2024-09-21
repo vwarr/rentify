@@ -15,9 +15,11 @@ def items(request):
     rental_items = RentalItem.objects.filter(available=True)
     return render(request, "items.html", {'rental_items': rental_items})
 
+
 def item_detail(request, item_id):
     item = get_object_or_404(RentalItem, id=item_id)
     return render(request, 'item-detail.html', {'item': item})
+
 
 @login_required(login_url=reverse_lazy('accounts:login'))
 def create_listing(request):
