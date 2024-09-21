@@ -1,10 +1,13 @@
 {% extends "base.html" %} {% block content %}
-<h1>Profile</h1>
+<h1>{{ user.first_name }}'s Profile</h1>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
+    <p>Email: {{ user.email }}</p>
+    <p>First name: {{ user.first_name }}</p>
+    <p>Last name: {{ user.last_name }}</p>
 </head>
 <body>
 
