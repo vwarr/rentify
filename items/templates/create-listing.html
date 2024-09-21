@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Create a Listing</h1>
-    <form class="site-form" action="create-listing" method="post">
+    <form class="site-form" action="create-listing" method="post" enctype='multipart/form-data'>
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Create Listing!">
