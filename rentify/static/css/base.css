@@ -1,0 +1,8 @@
+.nav-link.login {
+    margin-left: auto !important;
+}
+
+.navbar-nav {
+    display: flex !important;
+    width: 100% !important;
+}
