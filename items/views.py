@@ -38,3 +38,17 @@ def create_listing(request):
     else:
         form = forms.CreateItem()
     return render(request, 'create-listing.html', {'form': form})
+
+def item_list(request):
+    query = request.GET.get('query', '')  # Get the search query from the URL
+    rental_items = RentalItem.objects.all()  # Get all items by default
+
+    if query:
+        # Filter items by item_name using case-insensitive search
+        rental_items = rental_items.filter(item_name__icontains=query)
+
+    context = {
+        'rental_items': rental_items,
+        'query': query,  # Pass the query back to the template for displaying in the search bar
+    }
+    return render(request, 'items.html', context)

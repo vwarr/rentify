@@ -7,3 +7,6 @@ class CreateItem(forms.ModelForm):
         model = models.RentalItem
         fields = ['item_name', 'price', 'image']
 
+
+class SearchForm(forms.Form):
+    query = forms.CharField(max_length=100, required=False, widget=forms.TextInput(attrs={'placeholder': 'Search items...'}))

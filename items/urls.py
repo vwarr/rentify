@@ -6,7 +6,7 @@ from django.conf import settings
 app_name = 'items'
 
 urlpatterns = [
-    path('', views.items, name='items-list'),
+    path('', views.item_list, name='index'),
     path('create-listing', views.create_listing, name='create-listing'),
     path('<int:item_id>', views.item_detail, name='item-detail'),
 ]
