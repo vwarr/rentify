@@ -16,14 +16,3 @@ class RentalItem(models.Model):
     def __str__(self):
         return self.item_name
     
-class UserPayment(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    payment_success = models.BooleanField(default=False)
-    stripe_checkout_id = models.CharField(max_length=500)
-
-
-@receiver(post_save, sender=UserProfile)
-def create_payment(sender, instance, created, **kwargs):
-    if created:
-        UserPayment.objects.create(user=instance)
-

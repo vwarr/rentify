@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.urls import reverse
 from django.contrib.auth import login, logout
 from .forms import SignUpForm
+from accounts.models import UserProfile
 
 
 # Create your views here.

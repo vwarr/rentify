@@ -5,7 +5,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
 from . import forms
-from .models import RentalItem, UserPayment
+from .models import RentalItem
+from transaction.models import UserPayment
 import stripe
 
 
@@ -46,6 +47,8 @@ def create_listing(request):
     if request.method == 'POST':
         form = forms.CreateItem(request.POST, request.FILES)
         if form.is_valid():
+            if request.user.created_items == 0:
+                create_stripe_account()
             item = RentalItem.objects.create(
                 item_name=form.cleaned_data['item_name'],
                 price=form.cleaned_data['price'],
