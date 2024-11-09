@@ -1,8 +1,39 @@
-.nav-link.login {
-    margin-left: auto !important;
+.custom-navbar {
+  background-color: #4561BE !important; /* Sets the background color */
 }
 
-.navbar-nav {
-    display: flex !important;
-    width: 100% !important;
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: white; /* Change text color to white */
+}
+
+.custom-navbar .nav-link {
+  position: relative; /* This helps in positioning the box */
+  padding: 8px 16px; /* Add some padding to make the hover box bigger */
+}
+
+.custom-navbar .nav-link:hover {
+  color: white; /* Keep the text color white when hovering */
+  background-color: #E18E77; /* Set the background color of the box */
+  border-radius: 5px; /* Add rounded corners to the box */
+  padding: 8px 16px; /* Ensure padding stays the same as default */
+}
+
+.custom-navbar .nav-link {
+  position: relative;
+  padding: 8px 12px; /* Smaller padding to make the box less big */
+  transition: background-color 0.3s, padding 0.3s; /* Smooth transition for the hover effect */
+}
+
+.custom-navbar .nav-link:hover {
+  color: white; /* Keep the text color white when hovering */
+  background-color: #E18E77; /* Set the background color of the box */
+  border-radius: 5px; /* Add rounded corners to the box */
+  padding: 8px 12px; /* Keep padding the same as the default (no change in size) */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow effect */
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: white; /* Change text color to white */
 }
