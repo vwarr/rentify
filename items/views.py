@@ -12,12 +12,12 @@ from .models import Item, Category
 # Create your views here.
 
 def items(request):
-    rental_items = RentalItem.objects.filter(available=True)
+    rental_items = Item.objects.filter(available=True)
     return render(request, "items.html", {'rental_items': rental_items})
 
 
 def item_detail(request, item_id):
-    item = get_object_or_404(RentalItem, id=item_id)
+    item = get_object_or_404(Item, id=item_id)
     return render(request, 'item-detail.html', {'item': item})
 
 
@@ -26,13 +26,8 @@ def create_listing(request):
     if request.method == 'POST':
         form = forms.CreateItem(request.POST, request.FILES)
         if form.is_valid():
-            item = RentalItem.objects.create(
-                item_name=form.cleaned_data['item_name'],
-                price=form.cleaned_data['price'],
-                image=form.files['image'],
-                renter_first_name=request.user.first_name,
-                renter_last_name=request.user.last_name
-            )
+            item = form.save(commit=False)
+            item.renter = request.user  # Assuming you have a `renter` field linked to the user
             item.save()
             return redirect(reverse('items:items-list'))
     else:

@@ -8,16 +8,30 @@
         <a href="{% url 'items:create-listing' %}" class="btn btn-success">Create New Listing</a>
     </div>
 
-    <!-- Search Form -->
-    <form method="get" action="{% url 'items:index' %}" class="mb-4">
+    <!-- Merged Search Form -->
+    <form method="get" action="{% url 'items:items-list' %}" class="mb-4">
         <div class="input-group">
+            <!-- Category Dropdown -->
+            <select name="category" class="form-select">
+                <option value="">All Categories</option>
+                {% for category in categories %}
+                <option value="{{ category.id }}" {% if category.id == selected_category %}selected{% endif %}>
+                    {{ category.name }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <!-- Search Input -->
             <input
                 type="text"
                 name="query"
                 class="form-control"
                 placeholder="Search by item name..."
-                value="{{ query }}"  <!-- Display the current search query -->
-            <button class="btn btn-outline-primary" type="submit">Search</button>
+                value="{{ query }}"
+            >
+
+            <!-- Search Button -->
+            <button type="submit" class="btn btn-outline-primary">Search</button>
         </div>
     </form>
 
@@ -50,20 +64,4 @@
         {% endif %}
     </div>
 </div>
-
-<form method="get" action="{% url 'items:index' %}" class="mb-4">
-    <div class="input-group">
-        <select name="category" class="form-select">
-            <option value="">All Categories</option>
-            {% for category in categories %}
-            <option value="{{ category.id }}" {% if category.id == selected_category %}selected{% endif %}>
-                {{ category.name }}
-            </option>
-            {% endfor %}
-        </select>
-        <input type="text" name="query" class="form-control" placeholder="Search by item name..." value="{{ query }}">
-        <button type="submit" class="btn btn-outline-primary">Search</button>
-    </div>
-</form>
-
 {% endblock %}
