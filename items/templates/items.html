@@ -50,4 +50,20 @@
         {% endif %}
     </div>
 </div>
+
+<form method="get" action="{% url 'items:index' %}" class="mb-4">
+    <div class="input-group">
+        <select name="category" class="form-select">
+            <option value="">All Categories</option>
+            {% for category in categories %}
+            <option value="{{ category.id }}" {% if category.id == selected_category %}selected{% endif %}>
+                {{ category.name }}
+            </option>
+            {% endfor %}
+        </select>
+        <input type="text" name="query" class="form-control" placeholder="Search by item name..." value="{{ query }}">
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+    </div>
+</form>
+
 {% endblock %}
