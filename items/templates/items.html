@@ -1,33 +1,67 @@
 {% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
 
 {% block content %}
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>Available Items</h1>
-        <!-- Update the button to link to 'items/create-listing' with the 'create_listing' view -->
         <a href="{% url 'items:create-listing' %}" class="btn btn-success">Create New Listing</a>
     </div>
+
+    <!-- Merged Search Form -->
+    <form method="get" action="{% url 'items:items-list' %}" class="mb-4">
+        <div class="input-group">
+            <!-- Category Dropdown -->
+            <select name="category" class="form-select">
+                <option value="">All Categories</option>
+                {% for category in categories %}
+                <option value="{{ category.id }}" {% if category.id == selected_category %}selected{% endif %}>
+                    {{ category.name }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <!-- Search Input -->
+            <input
+                type="text"
+                name="query"
+                class="form-control"
+                placeholder="Search by item name..."
+                value="{{ query }}"
+            >
+
+            <!-- Search Button -->
+            <button type="submit" class="btn btn-outline-primary">Search</button>
+        </div>
+    </form>
+
+    <!-- Listings Grid -->
     <div class="row">
-        {% for item in rental_items %}
-        <div class="col-md-3 mb-4">
-            <div class="card h-100">
-                {% if item.image %}
-                <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.item_name }}" style="height: 200px; object-fit: cover;">
-                {% else %}
-                <img src="https://via.placeholder.com/150" class="card-img-top" alt="No image available" style="height: 200px; object-fit: cover;">
-                {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ item.item_name }}</h5>
-                    <p class="card-text"><strong>Price:</strong> ${{ item.price }}</p>
-                    <p class="card-text"><strong>Available:</strong> {% if item.available %}Yes{% else %}No{% endif %}</p>
-                    <p class="card-text"><small class="text-muted">Renter: {{ item.renter_first_name }} {{ item.renter_last_name }}</small></p>
-                </div>
-                <div class="card-footer">
-                    <a href="{% url 'items:item-detail' item.id %}" class="btn btn-primary btn-block">View Details</a>
+        {% if rental_items %}
+            {% for item in rental_items %}
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    {% if item.image %}
+                    <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.item_name }}" style="height: 200px; object-fit: cover;">
+                    {% else %}
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="No image available" style="height: 200px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.item_name }}</h5>
+                        <p class="card-text"><strong>Price:</strong> ${{ item.price }}</p>
+                        <p class="card-text"><strong>Available:</strong> {% if item.available %}Yes{% else %}No{% endif %}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'items:item-detail' item.id %}" class="btn btn-primary btn-block">View Details</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <p class="text-muted">No items found matching your search.</p>
+            </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

@@ -24,19 +24,16 @@
             <a class="nav-link" href="{% url 'user_profile:user_profile' %}">Profile</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Home</a>
+            <a class="nav-link" href="{% url 'items:items-list' %}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about:about' %}">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'items:items-list' %}">Items</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{% url 'contact:contact' %}">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link login">Login</a>
+            <a class="nav-link login" href="{% url 'accounts:login' %}">Login</a>
           </li>
         </ul>
       </div>

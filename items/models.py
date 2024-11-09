@@ -1,14 +1,18 @@
 from django.db import models
 
+class Category(models.Model):
+    name = models.CharField(max_length=100, unique=True)
 
-# Create your models here.
-class RentalItem(models.Model):
-    item_name = models.CharField(max_length=200)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    def __str__(self):
+        return self.name
+
+class Item(models.Model):
+    item_name = models.CharField(max_length=100)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    image = models.ImageField(upload_to='item_images/', blank=True, null=True)
     available = models.BooleanField(default=True)
-    renter_first_name = models.CharField(max_length=50)
-    renter_last_name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='images/', blank=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='items')
 
     def __str__(self):
         return self.item_name
