@@ -14,7 +14,7 @@
 
 .custom-navbar .nav-link:hover {
   color: white; /* Keep the text color white when hovering */
-  background-color: #E18E77; /* Set the background color of the box */
+  background-color: #8580B6; /* Set the background color of the box */
   border-radius: 5px; /* Add rounded corners to the box */
   padding: 8px 16px; /* Ensure padding stays the same as default */
 }
@@ -27,7 +27,7 @@
 
 .custom-navbar .nav-link:hover {
   color: white; /* Keep the text color white when hovering */
-  background-color: #E18E77; /* Set the background color of the box */
+  background-color: #8580B6; /* Set the background color of the box */
   border-radius: 5px; /* Add rounded corners to the box */
   padding: 8px 12px; /* Keep padding the same as the default (no change in size) */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow effect */
