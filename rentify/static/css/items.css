@@ -98,7 +98,6 @@ body {
 .input-group {
   max-width: 600px;
   margin: auto;
-  border-radius: 25px;
   overflow: hidden;
 }
 
@@ -345,4 +344,8 @@ body {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
+}
+
+.card img {
+  border-radius: 0; /* No rounding */
 }
