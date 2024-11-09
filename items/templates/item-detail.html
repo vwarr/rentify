@@ -1,4 +1,3 @@
-<!-- templates/items/item_detail.html -->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -15,6 +14,8 @@
             <p class="card-text"><strong>Description:</strong> {{ item.description }}</p>
             <p class="card-text"><strong>Available:</strong> {% if item.available %}Yes{% else %}No{% endif %}</p>
             <p class="card-text"><small class="text-muted">Renter: {{ item.renter_first_name }} {{ item.renter_last_name }}</small></p>
+            <!-- External Purchase Button -->
+            <a href="https://www.google.com" target="_blank" class="btn btn-warning mt-3">Purchase Now</a>
         </div>
     </div>
 </div>

@@ -1,12 +1,12 @@
 import os
-
 from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
 from . import forms
-from .models import RentalItem
+from .models import RentalItem, UserPayment
+import stripe
 
 
 # Create your views here.
@@ -18,6 +18,26 @@ def items(request):
 
 def item_detail(request, item_id):
     item = get_object_or_404(RentalItem, id=item_id)
+    stripe.api_key = settings.STRIPE_SECRET_KEY_TEST
+    if request.method == 'POST':
+        checkout_session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[
+                {
+                    'price_data': {
+                        'currency': 'usd',
+                        'product_data': {
+                            'name': item.item_name,
+                        },
+                        'unit_amount': int(item.price * 100),
+                    },
+                    'quantity': 1,
+                },
+            ],
+            mode='payment',
+            success_url=reverse_lazy('items:checkout-success'),
+            cancel_url=reverse_lazy('items:checkout-failed')
+        )
     return render(request, 'item-detail.html', {'item': item})
 
 
@@ -38,3 +58,19 @@ def create_listing(request):
     else:
         form = forms.CreateItem()
     return render(request, 'create-listing.html', {'form': form})
+
+
+def checkout_success(request):
+    stripe.api_key = settings.STRIPE_SECRET_KEY_TEST
+    checkout_session_id = request.GET.get('checkout_session_id', None)
+    session = stripe.checkout.Session.retrieve(checkout_session_id)
+    customer = stripe.Customer.retrieve(session.customer)
+    user_id = request.user.id
+    payment = UserPayment.objects.get(user=user_id)
+    payment.stripe_checkout_id = checkout_session_id
+    payment.save()
+    return render(request, 'checkout-success.html', {'customer': customer})
+
+
+def checkout_failed(request):
+    return render(request, 'checkout-failed.html')
