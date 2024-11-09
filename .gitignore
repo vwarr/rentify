@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+items/migrations/__pycache__/0003_rentalitem_image.cpython-311.pyc
+*.pyc

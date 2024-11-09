@@ -1,0 +1,351 @@
+/* General Body Styling */
+body {
+  background-color: #F0F5F9; /* Light background */
+  font-family: Arial, sans-serif; /* Airbnb-style clean sans-serif font */
+  color: #333; /* Standard dark text */
+}
+
+/* Navbar Styling */
+.custom-navbar {
+  background-color: #7BACDB;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-navbar .nav-link {
+  color: #FFFFFF;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  background-color: #3A6485;
+  color: #FFFFFF;
+}
+
+/* Item Card Styles */
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF; /* White background for cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Prevents text overflow */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #4561BE;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Price and Availability Styling */
+.card-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #4561BE;
+}
+
+.card-availability {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #dc3545;
+}
+
+.card-availability.available {
+  color: #28a745;
+}
+
+/* Card Footer Button */
+.card-footer {
+  background-color: #F0F5F9;
+  border-top: none;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card-footer .btn {
+  background-color: #4561BE;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-footer .btn:hover {
+  background-color: #3A6485;
+  transform: scale(1.05);
+}
+
+/* Search and Filter Styling */
+.input-group {
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.form-control, .form-select {
+  border: none;
+  border-radius: 0;
+  font-size: 1rem;
+  padding: 0.75rem;
+}
+
+.form-select {
+  background-color: #F0F5F9;
+  color: #666;
+}
+
+.btn-outline-primary {
+  background-color: #4561BE;
+  color: white;
+  border: none;
+  border-radius: 0;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-outline-primary:hover {
+  background-color: #3A6485;
+  color: white;
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: #4561BE;
+  color: white;
+  font-size: 1rem;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #3A6485;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .custom-navbar {
+    padding: 0.5rem;
+  }
+
+  .input-group, .btn {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .card {
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Search Bar Container */
+.input-group {
+  max-width: 700px;
+  margin: 0 auto 2rem auto; /* Center and add spacing below */
+  border-radius: 50px; /* Rounded edges for the entire input group */
+  overflow: hidden; /* Hide overflow for consistent styling */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Category Dropdown */
+.form-select {
+  background-color: #F0F5F9; /* Soft background */
+  color: #666; /* Subtle text color */
+  border: none; /* Remove default border */
+  border-radius: 0; /* No extra rounding for individual elements */
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.form-select:focus {
+  background-color: #E1E8ED; /* Slightly darker for focus effect */
+  outline: none; /* Remove default focus outline */
+}
+
+/* Search Input Field */
+.form-control {
+  background-color: #F0F5F9;
+  border: none;
+  border-radius: 0;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  color: #666; /* Subtle text color */
+  transition: background-color 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: #B0B8C1; /* Light placeholder color */
+}
+
+.form-control:focus {
+  background-color: #E1E8ED;
+  outline: none;
+}
+
+/* Search Bar Container */
+.input-group {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Category Dropdown */
+.form-select {
+  background-color: #F0F5F9;
+  color: #666;
+  border: none;
+  border-radius: 0;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.form-select:focus {
+  background-color: #E1E8ED; /* Slight background change on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: none; /* Remove any focus box-shadow */
+}
+
+/* Search Input Field */
+.form-control {
+  background-color: #F0F5F9;
+  border: none;
+  border-radius: 0;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  color: #666;
+  transition: background-color 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: #B0B8C1;
+}
+
+.form-control:focus {
+  background-color: #E1E8ED; /* Slight background change on focus */
+  outline: none; /* Remove default focus outline */
+  box-shadow: none; /* No border box-shadow */
+}
+
+/* Search Bar Container */
+.input-group {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+/* Category Dropdown */
+.form-select {
+  background-color: #F0F5F9;
+  color: #666;
+  border: none;
+  border-radius: 0;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  height: 100%; /* Ensure it fills the height of the input group */
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center; /* Center text vertically */
+}
+
+.form-select:focus {
+  background-color: #E1E8ED;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Search Input Field */
+.form-control {
+  background-color: #F0F5F9;
+  border: none;
+  border-radius: 0;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  color: #666;
+  height: 100%; /* Ensure it fills the height of the input group */
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center; /* Center text vertically */
+}
+
+.form-control::placeholder {
+  color: #B0B8C1;
+}
+
+.form-control:focus {
+  background-color: #E1E8ED;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Search Button */
+.btn-outline-primary {
+  background-color: #4561BE;
+  color: white;
+  border: none;
+  border-radius: 0;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  height: 100%; /* Ensure it fills the height of the input group */
+  display: flex;
+  align-items: center; /* Center text vertically */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #3A6485;
+  color: white;
+  transform: scale(1.05);
+}
+
+.btn-outline-primary:focus {
+  background-color: #3A6485;
+  outline: none;
+}
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+  .input-group {
+    width: 100%;
+    border-radius: 25px;
+  }
+
+  .form-control, .form-select, .btn-outline-primary {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+.card img {
+  border-radius: 0; /* No rounding */
+}

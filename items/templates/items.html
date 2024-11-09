@@ -48,8 +48,8 @@
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">{{ item.item_name }}</h5>
-                        <p class="card-text"><strong>Price:</strong> ${{ item.price }}</p>
-                        <p class="card-text"><strong>Available:</strong> {% if item.available %}Yes{% else %}No{% endif %}</p>
+                        <p class="card-text"><strong>Price:</strong> <span class="card-price">${{ item.price }}</span></p>
+                        <p class="card-text"><strong>Available:</strong> <span class="card-availability {% if item.available %}available{% endif %}">{% if item.available %}Yes{% else %}No{% endif %}</span></p>
                     </div>
                     <div class="card-footer">
                         <a href="{% url 'items:item-detail' item.id %}" class="btn btn-primary btn-block">View Details</a>

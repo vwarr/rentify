@@ -1,8 +1,138 @@
-.nav-link.login {
-    margin-left: auto !important;
+.custom-navbar {
+  background-color: #4561BE !important; /* Sets the background color */
 }
 
-.navbar-nav {
-    display: flex !important;
-    width: 100% !important;
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: white; /* Change text color to white */
+}
+
+.custom-navbar .nav-link {
+  position: relative; /* This helps in positioning the box */
+  padding: 8px 16px; /* Add some padding to make the hover box bigger */
+}
+
+.custom-navbar .nav-link:hover {
+  color: white; /* Keep the text color white when hovering */
+  background-color: #8580B6; /* Set the background color of the box */
+  border-radius: 5px; /* Add rounded corners to the box */
+  padding: 8px 16px; /* Ensure padding stays the same as default */
+}
+
+.custom-navbar .nav-link {
+  position: relative;
+  padding: 8px 12px; /* Smaller padding to make the box less big */
+  transition: background-color 0.3s, padding 0.3s; /* Smooth transition for the hover effect */
+}
+
+.custom-navbar .nav-link:hover {
+  color: white; /* Keep the text color white when hovering */
+  background-color: #8580B6; /* Set the background color of the box */
+  border-radius: 5px; /* Add rounded corners to the box */
+  padding: 8px 12px; /* Keep padding the same as the default (no change in size) */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow effect */
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: white; /* Change text color to white */
+}
+
+/* General Body Styling */
+body {
+  background-color: #F5F7FA; /* Light gray-blue background */
+  font-family: 'Lato', sans-serif; /* Set 'Lato' as the default body font */
+  color: #333333;
+}
+
+/* Headings Styling */
+h1, h2, h3, .card-title, .navbar-brand {
+  font-family: 'Poppins', sans-serif; /* Use 'Poppins' for headings */
+  font-weight: 700; /* Bold for strong emphasis */
+  color: #4561BE; /* Primary color for headings */
+}
+
+h1 {
+  font-size: 2rem; /* Larger size for main heading */
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3, .card-title {
+  font-size: 1.5rem;
+  color: #4561BE; /* Primary color for card titles */
+}
+
+/* Navbar Styling */
+.custom-navbar {
+  background-color: #4561BE;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.custom-navbar .nav-link {
+  color: #FFFFFF;
+  font-weight: 700; /* Bold text for emphasis */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  background-color: #3A6485;
+  color: #FFFFFF;
+}
+
+/* Body Text Styling */
+.card-text, .card-price, .card-availability, .input-group .form-control {
+  font-family: 'Lato', sans-serif; /* Set 'Lato' for general body text */
+  font-weight: 400; /* Regular weight for readability */
+  font-size: 1rem;
+  color: #555555; /* Medium gray for body text */
+}
+
+/* Price and Availability Styling */
+.card-price {
+  font-weight: 700; /* Bold price for emphasis */
+  color: #F76C6C;
+}
+
+.card-availability {
+  font-weight: 700;
+  color: #dc3545;
+}
+
+.card-availability.available {
+  color: #28a745;
+}
+
+/* Button Styles */
+.btn-primary, .btn-outline-primary {
+  font-family: 'Poppins', sans-serif; /* Set buttons to 'Poppins' for bold style */
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: #4561BE;
+  color: white;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #3A6485;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline-primary:hover {
+  background-color: #E85C5C;
+}
+
+/* Footer and Card Footer */
+.card-footer {
+  font-family: 'Lato', sans-serif; /* Footer text in 'Lato' for readability */
+  background-color: #EFF3F8;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1rem;
 }
